@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ifconfig eth0 | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null;
+if ifconfig eth0 | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
  
   wget https://github.com/osrun/beta/raw/master/run
   chmod +x run
