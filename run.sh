@@ -1,5 +1,5 @@
 #!/bin/sh
-#190321
+#190320
 
 END="cisco.viewdns.net"
 PORT="80"
