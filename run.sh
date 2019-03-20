@@ -13,9 +13,4 @@ _RUN(){
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
  _RUN
-else
-  killall udhcpc
-  vconfig add eth0 35
-  ip link set eth0.35 up
-  udhcpc -b -i eth0.35 -s /etc/05_rc.dhcp
 fi
