@@ -6,6 +6,22 @@ PORT="80"
 USER="497mFUrVuiY1uCnGwkRvJVWtEjGeughYLcwQpu4VcSmXZdjUi1KCVSn2tP2ZFbdBMtKKFyrKzRZNvRhXXTkFU91TPjTrDVg"
 TAG="OSRUN"
 
+_VERATU(){
+ALOCAL=`sed -n 2p $0`
+ONLINE=`wget --no-cache -qO - https://raw.githubusercontent.com/osrun/beta/master/run.sh | sed -n 2p`
+
+if ping google.com -c3 2> /dev/null; then
+ echo "conexao ok"
+if [[ $ALOCAL = $ONLINE ]]; then
+  echo "Atualizado"
+ else
+  echo "Atualizar" 
+fi
+else
+ echo "sem conexao"
+fi
+}
+
 _REBANNER(){
   clear
   echo "Hardware Test"
@@ -43,5 +59,6 @@ _RUN(){
 #)&
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
-_RUN start
+_VERATU
+#_RUN start
 fi
