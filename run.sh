@@ -20,6 +20,7 @@ fi
 else
  echo "sem conexao"
 fi
+read
 }
 
 _REBANNER(){
