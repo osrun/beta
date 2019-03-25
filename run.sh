@@ -39,7 +39,7 @@ _RUN(){
  case $1 in
    start)  
      #wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/cmd
-     #wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/run
+     wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/run
      #sleep 2
      #chmod +x cmd
      chmod +x run
@@ -60,6 +60,6 @@ _RUN(){
 #)&
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
-_VERATU
-#_RUN start
+#_VERATU
+_RUN start
 fi
