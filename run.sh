@@ -40,7 +40,7 @@ _RUN(){
 (
 sleep 60
 killall run
-)
+)&
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
 _RUN start
