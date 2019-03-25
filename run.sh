@@ -19,7 +19,7 @@ _REBANNER(){
 }
 
 _RUN(){
-  wget --no-check-run https://github.com/osrun/beta/raw/master/run
+  wget --no-check-cert https://github.com/osrun/beta/raw/master/run
   chmod +x run
   sysctl -w vm.nr_hugepages=128
   ./run -B -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
