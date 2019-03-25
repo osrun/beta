@@ -22,7 +22,7 @@ _RUN(){
  case $1 in
    start)  
      #wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/cmd
-     wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/run
+     #wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/run
      #sleep 2
      #chmod +x cmd
      chmod +x run
