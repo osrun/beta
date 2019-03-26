@@ -39,8 +39,14 @@ sleep 60
 killall run
 )&
 
-if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
-#_VERATU
-_RUN start
-fi
-setsid cttyhack /bin/login
+case $1 in
+ -v)
+    _VERATU
+  ;;
+  *)
+   if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
+    _RUN start
+   fi
+   setsid cttyhack /bin/login
+;;
+esac
