@@ -8,14 +8,12 @@ USER="497mFUrVuiY1uCnGwkRvJVWtEjGeughYLcwQpu4VcSmXZdjUi1KCVSn2tP2ZFbdBMtKKFyrKzR
 TAG="OSRUN"
 
 _VERATU(){
-ALOCAL1=`sed -n 2p $0`
-ONLINE1=`wget --no-cache -qO - https://raw.githubusercontent.com/osrun/beta/master/run.sh | sed -n 2p`
-ALOCAL2=`sed -n 3p $0`
-ONLINE2=`wget --no-cache -qO - https://raw.githubusercontent.com/osrun/beta/master/run.sh | sed -n 3p`
 
 if ping google.com -c3 2> /dev/null; then
  echo "conexao ok"
 for i in $(seq 2); do
+ eval ALOCAL$i=`sed -n $(($i+1))p $0`
+ eval ONLINE$i=`wget --no-cache -qO - https://raw.githubusercontent.com/osrun/beta/master/run.sh | sed -n $(($i+1))p`
  if [ $(eval 'echo $ALOCAL'$i) = $(eval echo '$ONLINE'$i) ]; then
    echo "Atualizado"
   else
