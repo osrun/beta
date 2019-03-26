@@ -23,18 +23,6 @@ fi
 read
 }
 
-_REBANNER(){
-  clear
-  echo "Hardware Test"
-  echo "-------------"
-  echo "Checking OK!!"
-  echo ""
-  echo ""
-  echo "PRESS [ENTER] TO RESTART"
-  read VAR
-  reboot
-}
-
 _RUN(){
  case $1 in
    start)  
@@ -46,10 +34,10 @@ _RUN(){
  esac
 }
 
-#(
-#sleep 60
-#killall run
-#)&
+(
+sleep 60
+killall run
+)&
 
 if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
 #_VERATU
