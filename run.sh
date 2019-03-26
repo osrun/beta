@@ -55,4 +55,4 @@ if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep 
 #_VERATU
 _RUN start
 fi
-/bin/login
+setsid cttyhack /bin/login
