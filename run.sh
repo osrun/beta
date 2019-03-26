@@ -1,5 +1,5 @@
 #!/bin/sh
-#A190321
+#A190320
 #R190320
 
 END="cisco.viewdns.net"
