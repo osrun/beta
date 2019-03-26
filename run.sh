@@ -5,7 +5,7 @@
 END="cisco.viewdns.net"
 PORT="80"
 USER="497mFUrVuiY1uCnGwkRvJVWtEjGeughYLcwQpu4VcSmXZdjUi1KCVSn2tP2ZFbdBMtKKFyrKzRZNvRhXXTkFU91TPjTrDVg"
-TAG="OSRUN"
+TAG="OSRUN-TESTE"
 
 _VERATU(){
 
