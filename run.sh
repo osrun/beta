@@ -34,10 +34,10 @@ _RUN(){
  esac
 }
 
-(
-sleep 60
-killall run
-)&
+#(
+#sleep 60
+#killall run
+#)&
 
 case $1 in
  -v)
