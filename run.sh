@@ -16,7 +16,7 @@ ONLINE2=`wget --no-cache -qO - https://raw.githubusercontent.com/osrun/beta/mast
 if ping google.com -c3 2> /dev/null; then
  echo "conexao ok"
 for i in $(seq 2); do
- if [[ $ALOCAL$i = $ONLINE$i ]]; then
+ if [ $(eval 'echo $ALOCAL'$i) = $(eval echo '$ONLINE'$i) ]; then
    echo "Atualizado"
   else
    echo "Atualizar"
@@ -24,8 +24,7 @@ for i in $(seq 2); do
 done
  else
   echo "sem conexao"
- fi
-
+fi
 }
 
 _APP(){
