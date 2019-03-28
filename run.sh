@@ -49,7 +49,7 @@ case $1 in
    if ifconfig | grep "inet addr" | cut -d: -f2 | cut -dB -f1 | cut -d. -f1 | grep -o 192 > /dev/null; then
     _APP start
    fi
-   tput civis; read -p "PRESS [ENTER]" NULL; tput cnorm
+   read -p "PRESS [ENTER]" NULL
    setsid cttyhack /bin/login   
 ;;
 esac
